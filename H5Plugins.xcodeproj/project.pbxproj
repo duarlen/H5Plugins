@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		31600DC42727AD2D001A2B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DC32727AD2D001A2B62 /* AppDelegate.swift */; };
-		31600DC62727AD2D001A2B62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DC52727AD2D001A2B62 /* SceneDelegate.swift */; };
 		31600DC82727AD2D001A2B62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DC72727AD2D001A2B62 /* ViewController.swift */; };
 		31600DCB2727AD2D001A2B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31600DC92727AD2D001A2B62 /* Main.storyboard */; };
 		31600DCD2727AD2F001A2B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31600DCC2727AD2F001A2B62 /* Assets.xcassets */; };
 		31600DD02727AD2F001A2B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31600DCE2727AD2F001A2B62 /* LaunchScreen.storyboard */; };
+		31600DD92727AD89001A2B62 /* PluginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DD82727AD89001A2B62 /* PluginHandler.swift */; };
+		31600DDB2727AD9A001A2B62 /* PluginInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DDA2727AD9A001A2B62 /* PluginInterface.swift */; };
+		31600DDE2727ADB2001A2B62 /* GetAccountPlugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31600DDD2727ADB2001A2B62 /* GetAccountPlugins.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31600DC02727AD2D001A2B62 /* H5Plugins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = H5Plugins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31600DC32727AD2D001A2B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31600DC52727AD2D001A2B62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		31600DC72727AD2D001A2B62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31600DCA2727AD2D001A2B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31600DCC2727AD2F001A2B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31600DCF2727AD2F001A2B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31600DD12727AD2F001A2B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31600DD82727AD89001A2B62 /* PluginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginHandler.swift; sourceTree = "<group>"; };
+		31600DDA2727AD9A001A2B62 /* PluginInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginInterface.swift; sourceTree = "<group>"; };
+		31600DDD2727ADB2001A2B62 /* GetAccountPlugins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountPlugins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +61,40 @@
 			isa = PBXGroup;
 			children = (
 				31600DC32727AD2D001A2B62 /* AppDelegate.swift */,
-				31600DC52727AD2D001A2B62 /* SceneDelegate.swift */,
 				31600DC72727AD2D001A2B62 /* ViewController.swift */,
+				31600DD72727AD7C001A2B62 /* Plugins */,
 				31600DC92727AD2D001A2B62 /* Main.storyboard */,
 				31600DCC2727AD2F001A2B62 /* Assets.xcassets */,
 				31600DCE2727AD2F001A2B62 /* LaunchScreen.storyboard */,
 				31600DD12727AD2F001A2B62 /* Info.plist */,
 			);
 			path = H5Plugins;
+			sourceTree = "<group>";
+		};
+		31600DD72727AD7C001A2B62 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				31600DDC2727AD9E001A2B62 /* Core */,
+				31600DDF2727ADB5001A2B62 /* Instance */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		31600DDC2727AD9E001A2B62 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				31600DD82727AD89001A2B62 /* PluginHandler.swift */,
+				31600DDA2727AD9A001A2B62 /* PluginInterface.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		31600DDF2727ADB5001A2B62 /* Instance */ = {
+			isa = PBXGroup;
+			children = (
+				31600DDD2727ADB2001A2B62 /* GetAccountPlugins.swift */,
+			);
+			path = Instance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31600DDB2727AD9A001A2B62 /* PluginInterface.swift in Sources */,
 				31600DC82727AD2D001A2B62 /* ViewController.swift in Sources */,
+				31600DDE2727ADB2001A2B62 /* GetAccountPlugins.swift in Sources */,
+				31600DD92727AD89001A2B62 /* PluginHandler.swift in Sources */,
 				31600DC42727AD2D001A2B62 /* AppDelegate.swift in Sources */,
-				31600DC62727AD2D001A2B62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = H5Plugins/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = H5Plugins/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
